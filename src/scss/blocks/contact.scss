@@ -1,0 +1,203 @@
+.contact {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    z-index: 999;
+    visibility: hidden;
+    &.active { animation: fx-overlay-active 0.8s 1.25s 1 ease-in-out forwards; }
+    &.active-reverse { animation: fx-overlay-active-reverse 0.8s 1 ease-in-out forwards; }
+
+    &__close {
+        color: #fff;
+        text-shadow: longshadow(darken($bgGray,45%), $bgGray, 30, 0.5);
+        transition: all .2s ease;
+        &:hover {
+            color: $red;
+            text-shadow: longshadow(darken($red,30%), $bgGray, 30, 0.5);
+            
+        }
+    }
+
+    &__title {
+        margin: 10px 0 50px;
+        font-family: 'latoblack';
+        font-size: rem(52px);
+        color: #fff;
+        text-align: center;
+        letter-spacing: 9px;
+        text-transform: uppercase;
+        text-shadow: longshadow(darken($bgGray,35%), $bgGray, 30, 0.5);
+    }
+
+    &__list {
+        position: relative;
+        max-width: 500px;
+        height: 480px;
+        width: 100%;
+        margin: 0 auto 60px;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__item {
+        position: absolute;
+        width: 120px; height: 120px;
+        top: 0; right: -60px;
+        color: #fff;
+        background-color: transparent;
+        border-radius: 50%;
+        transition: .4s ease;
+        overflow: hidden;
+
+        &.active {
+            top: 20px; right: -10px;
+            min-width: 100%; width: 100%;
+            height: 100%;
+            border-radius: 0;
+            z-index: 1;
+
+            & .contact__toggle {
+                position: absolute;
+                top: 0; right: -60px;
+                transform: scale(12);
+                transition: transform .4s ease;
+            }
+            & .contact__heading {
+                left: 0;
+                opacity: 1;
+                visibility: visible;
+                transition: .3s ease .4s;
+            }
+            & .contact__link {
+                left: 0;
+                opacity: 1;
+                visibility: visible;
+                transition: .3s ease .6s;
+            }
+            & .contact__icon {
+                display: none;
+            }
+            & .contact__closer {
+                visibility: visible;
+                opacity: 1;
+                transition: .3s ease .3s;
+            }
+        }
+        &:nth-child(3) { top: 180px; &.active {top: 20px;} }
+        &:nth-child(4) { top: 360px; &.active {top: 20px;} }
+        &--intro {
+            position: relative;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: #fff;
+            color: #000;
+            border-radius: 0;
+            box-shadow: longshadow(darken($bgGray,25%), $bgGray, 30, 0.5);
+            border: 1px solid darken($bgGray,2%);
+            &.active {
+                top: 0;
+                margin-left: -20px;
+                z-index: 0;
+                background-color: darken($bgGray, 3%);
+                box-shadow: longshadow(darken($bgGray,45%), $bgGray, 30, 0.5);
+            }
+        }
+    }
+
+    &__toggle {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 120px; height: 120px;
+        background-color: $red;
+        border-radius: 50%;
+        cursor: pointer;
+        &--email { background-color: $mail; }
+        &--skype { background-color: $skype; }
+        &--git { background-color: $git; }
+    }
+
+    &__icon {
+        fill: #fff;
+        flex-basis: 60%;
+    }
+
+    &__closer {
+        position: absolute;
+        visibility: hidden;
+        right: 20px; top: 20px;
+        opacity: 0;
+        font-family: 'latoblack';
+        font-size: rem(40px);
+        color: #fff;
+        z-index: 1;
+        cursor: pointer;
+    }
+
+    &__info {
+        position: relative;
+        padding: 50px 40px 0;
+    }
+
+    &__intro-heading {
+        margin: 0 0 60px;
+        font-family: 'latoblack';
+        font-size: rem(36px);
+        color: $red;
+        text-transform: uppercase;
+    }
+    &__heading {
+        position: relative;
+        visibility: hidden;
+        left: 100px;
+        margin: 0 0 50px;
+        opacity: 0;
+        font-family: 'latothin';
+        font-size: rem(36px);
+
+        strong {
+            display: block;
+            padding-top: 10px;
+            font-family: 'latoblack';
+        }
+    }
+
+    &__desc {
+        padding-right: 100px;
+        font-family: 'latolight';
+        font-size: rem(30px);
+        text-align: right;
+    }
+
+    &__link {
+        position: relative;
+        display: inline-block;
+        visibility: hidden;
+        left: 100px;
+        opacity: 0;
+        font-family: 'latoblack';
+        font-size: rem(30px);
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 2px solid #fff;
+    }
+}
+
+/* ================== Animation ================== */
+
+// ----- Active section ----
+
+@keyframes fx-overlay-active {
+    0%   { visibility: visible; opacity: 0; }
+    50% { background-color: $bgRed; }
+    100% { visibility: visible; background-color: #2f3971; opacity: 1 }
+}
+
+// ----- Reverse ----
+@keyframes fx-overlay-active-reverse {
+    0% { visibility: visible; background-color: $bgGray; opacity: 1 }
+    50% { background-color: $bgGray; }
+    95%   { visibility: visible; opacity: 0; }
+    100%   { visibility: hidden; opacity: 0; }
+}

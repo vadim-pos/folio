@@ -1,0 +1,26 @@
+// Font size for the root html element
+$baseFontSize: 14px;
+
+// Adaptive layout breakpoints
+$breakpoints: (
+    'xs': 0,
+    'sm': 544px,
+    'md': 768px,
+    'lg': 992px,
+    'xl': 1200px
+);
+
+// Grid variables
+$grid-gutter: 1.5rem;
+$grid-columns: 12;
+
+// Colors
+$bgRed: #e74c3c;
+$bgYellow: #ffeb3b;
+$bgGray: #efefef;
+
+$red: #ed2553;
+
+$mail: #ed2553;
+$skype: #2196f3;
+$git: #f44336;

@@ -1,0 +1,184 @@
+.nav {
+
+    &__controls {
+        display: flex;
+        justify-content: center;
+        padding: 100px 0;
+    }
+
+    &__btn {
+        position: relative;
+        display: inline-block;
+        width: 250px;
+        height: 250px;
+        margin: 0 60px;
+        background-color: darken($bgRed,2%);
+        border: 3px solid #fff;
+        outline: none;
+        transform: rotate(45deg);
+        cursor: pointer;
+        box-shadow: longshadow(darken($bgRed,20%), $bgRed, 50, 0.5);
+        overflow: hidden;
+        transition: border-color .3s;
+
+        &:nth-child(2n+1).active {
+            z-index: 1;
+            animation: fx-left-active 2s 1 ease-in-out;
+        }
+        &:nth-child(2n+1).active-reverse {
+            z-index: 1;
+            animation: fx-left-active-reverse 2s 1 ease-in-out;
+        }
+        &:nth-child(2n+1).inactive {
+            z-index: 0;
+            animation: fx-left-inactive 2s 1 ease-in-out;
+        }
+        &:nth-child(2n+1).inactive-reverse {
+            z-index: 0;
+            animation: fx-left-inactive-reverse 2s 1 ease-in-out;
+        }
+        &:nth-child(n+2).active {
+            z-index: 1;
+            animation: fx-right-active 2s 1 ease-in-out;
+        }
+        &:nth-child(n+2).active-reverse {
+            z-index: 1;
+            animation: fx-right-active-reverse 2s 1 ease-in-out;
+        }
+        &:nth-child(n+2).inactive {
+            z-index: 0;
+            animation: fx-right-inactive 2s 1 ease-in-out;
+        }
+        &:nth-child(n+2).inactive-reverse {
+            z-index: 0;
+            animation: fx-right-inactive-reverse 2s 1 ease-in-out;
+        }
+        &.active {
+            &:before, &:after {
+                width: 100%;
+                background-color: $bgGray;
+            }
+        }
+        &.active, &.inactive {
+            .nav__icon { animation: fx-icon-active 2s 1 ease-in-out; }
+        }
+        &.active-reverse, &.inactive-reverse {
+            .nav__icon { animation: fx-icon-active-reverse 2s 1 ease-in-out; }
+        }
+
+        &:before, &:after {
+            position: absolute;
+            z-index: 0;
+            width: 0; height: 100%;
+            top: 0;
+            content: '';
+            background-color: $bgGray;
+            transition: width .4s ease-out;
+        }
+        &:before { left: 50%; margin-left: -1px; }
+        &:after { right: 50%; margin-right: -1px;}
+        &:hover {
+            &:before, &:after {
+                width: 100%;
+            }
+            & > * {
+                fill: #000;
+            }
+        }
+    }
+
+    &__icon {
+        position: relative;
+        width: 50%;
+        transform: rotate(-45deg);
+        z-index: 1;
+        transition: fill .6s ease-out;
+    }
+}
+
+/* ================== Animation ================== */
+
+// ----- Active section -----
+
+@keyframes fx-left-active {
+    0% {}
+    15% { transform: rotate(0deg); }
+    35% { transform: translate3d(-27.5%, 0, 0); }
+    50% { transform: translate3d(75%, 0, 0) scale(1); color: #fff;}
+    100% { transform: translate3d(75%, 75%, 0) scale(20); color: transparent; }
+}
+@keyframes fx-right-active {
+    0% {}
+    15% { transform: rotate(0deg); }
+    35% { transform: translate3d(27.5%, 0, 0); }
+    50% { transform: translate3d(-75%, 0, 0) scale(1); color: #fff;}
+    100% { transform: translate3d(55%, 55%, 0) scale(20); color: transparent; }
+}
+@keyframes fx-icon-active {
+    0% {}
+    15% { transform: rotate(0deg); }
+    30% { opacity: 1; }
+    85% { opacity: 0; }
+    100% { opacity: 0; transform: rotate(0deg); }
+}
+
+// ----- Inactive Elements -----
+
+@keyframes fx-left-inactive {
+    0% {}
+    15% { transform: rotate(0deg); }
+    35% { transform: translate3d(-27.5%, 0, 0); opacity: 1; }
+    50% { transform: translate3d(55.1%, 0, 0) scale(1); color: #fff; opacity: 0;}
+    100% { transform: translate3d(55.1%, 55.1%, 0) scale(20); color: transparent; opacity: 0; }
+}
+
+@keyframes fx-right-inactive {
+    0% {}
+    15% { transform: rotate(0deg); }
+    35% { transform: translate3d(27.5%, 0, 0); opacity: 1;}
+    50% { transform: translate3d(-55.1%, 0, 0) scale(1); color: #fff; opacity: 0;}
+    100% { transform: translate3d(55.1%, 55.1%, 0) scale(20); color: transparent; opacity: 0; }
+}
+
+// ----- Reverse Active -----
+
+@keyframes fx-left-active-reverse {
+    0% { transform: translate3d(75%, 75%, 0) scale(20); color: transparent; }
+    15% { transform: translate3d(75%, 0, 0) scale(1); color: #fff;}
+    35% { transform: translate3d(-27.5%, 0, 0); }
+    50% { transform: rotate(0deg); }
+    100% {}
+}
+@keyframes fx-right-active-reverse {
+    0% { transform: translate3d(55%, 55%, 0) scale(20); color: transparent; }
+    15% { transform: translate3d(-75%, 0, 0) scale(1); color: #fff;}
+    35% { transform: translate3d(27.5%, 0, 0); }
+    50% { transform: rotate(0deg); }
+    0% {}
+}
+@keyframes fx-icon-active-reverse {
+    0% { opacity: 0; transform: rotate(0deg); }
+    15% { opacity: 0; }
+    30% { opacity: 1 }
+    50% { transform: rotate(0deg); }
+    60% { transform: rotate(0deg); }
+    100% {}
+}
+
+// ----- Reverse Inactive -----
+
+@keyframes fx-left-inactive-reverse {
+    0% { transform: translate3d(55.1%, 55.1%, 0) scale(20); color: transparent; opacity: 0; }
+    15% { transform: translate3d(55.1%, 0, 0) scale(1); color: #fff; opacity: 0;}
+    35% { transform: translate3d(-27.5%, 0, 0); opacity: 1; }
+    50% { transform: rotate(0deg); }
+    0% {}
+}
+
+@keyframes fx-right-inactive-reverse {
+    0% { transform: translate3d(55.1%, 55.1%, 0) scale(20); color: transparent; opacity: 0; }
+    15% { transform: translate3d(-55.1%, 0, 0) scale(1); color: #fff; opacity: 0;}
+    35% { transform: translate3d(27.5%, 0, 0); opacity: 1;}
+    50% { transform: rotate(0deg); }
+    0% {}
+}

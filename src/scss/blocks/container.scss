@@ -1,0 +1,17 @@
+.container {
+	@include container();
+	max-width: 800px;
+	// ----- Media queries -----
+	// @include screen(sm) {
+	// 	max-width: 576px;
+	// }
+	// @include screen(md) {
+	// 	max-width: 720px;
+	// }
+	// @include screen(lg) {
+	// 	max-width: 940px;
+	// }
+	// @include screen(xl) {
+	// 	max-width: 1140px;
+	// }
+}
