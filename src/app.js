@@ -10,37 +10,6 @@ import './scss/main.scss';
 /* ----- Sections navigation ----- */
 /* --------------------------------- */
 
-// navButton.on('click', e => {
-//     const $this = $(e.target);
-    
-//     /* remove previous classes */
-//     navButton.removeClass('inactive_reverse active_reverse');
-//     overlay.removeClass('active active_reverse');
-    
-//     $this.addClass('active');
-//     $this.siblings().addClass('inactive');
-//     $('#' + $this.data('id')).addClass('active');
-    
-//     /* Prevent scrolling */
-//     $('body').addClass('noscroll');
-// });
-
-// $('.close').on('click', e => {
-//      Remove old classes and add new ones on menu elements 
-//     $('.active').removeClass('active').addClass('active_reverse');
-//     $('.inactive').addClass('inactive_reverse');
-    
-//     /* Bring back overlay to its default state */
-//     $(e.target).parent().addClass('active_reverse');
-
-//     /* Remove .noscroll and .inactive when reverse animation is finished */
-//     $('.inactive_reverse').bind(animEnd, function(){
-//         $('body').removeClass('noscroll');
-//         $(navButton).removeClass('inactive');
-//         $('.inactive_reverse').unbind(animEnd);
-//     });
-// });
-
 const btns  = $('.nav__btn');
 const sectionClosers = $('.section-closer');
 
