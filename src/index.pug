@@ -1,7 +1,7 @@
 extends templates/layout.pug
 
 block title
-    title Vadim P.Front-end developer
+    title Vadim P. Front-end developer
 
 block content
     .main-wrapper
@@ -16,15 +16,16 @@ block content
                     h2.about__skills-title Skillset and Interests
                     ul.about__skills-list
                         li.about__skills-item JavaScript
+                        li.about__skills-item TypeScript
+                        li.about__skills-item Node.js
+                        li.about__skills-item ES6
                         li.about__skills-item HTML5
                         li.about__skills-item CSS3
                         li.about__skills-item Responsive/Adaptive
-                        li.about__skills-item Node.js
-                        li.about__skills-item ES6
                         li.about__skills-item React
+                        li.about__skills-item Angular
+                        li.about__skills-item Vue
                         li.about__skills-item Redux
-                        li.about__skills-item AngularJS
-                        li.about__skills-item VueJs
                         li.about__skills-item Vuex
                         li.about__skills-item jQuery
                         li.about__skills-item BEM
@@ -84,9 +85,57 @@ block content
         section.works.overlay
             button.works__close.section-closer &#10006;
             .container
-                h2.works__title My Works
+                h2.works__title Some of My Works
                 ul.works__list
-                    li.works__item
+                    li.works__item(data-image="flashcards.jpg")
+                        .works__item-inner
+                            .works__item-title Flashcards repetitor
+                            .works__item-sub Angular SPA for spaced repitition
+                            a.works__item-open(href="https://ng-flashcards.herokuapp.com/" target="_blank") Open
+                                svg
+                                    rect(x="0" y="0" fill="none" width="100%" height="100%")
+                            a.works__item-source(href="https://github.com/vadim-pos/ng-flashcards" target="_blank") Source Code
+                    li.works__item(data-image="todomvc.jpg")
+                        .works__item-inner
+                            .works__item-title Angular TodoMVC
+                            .works__item-sub Angular implementation of todoMVC
+                            a.works__item-open(href="https://vadim-pos.github.io/ng-todomvc/" target="_blank") Open
+                                svg
+                                    rect(x="0" y="0" fill="none" width="100%" height="100%")
+                            a.works__item-source(href="https://github.com/vadim-pos/ng-todomvc" target="_blank") Source Code
+                    li.works__item(data-image="snake-1.jpg")
+                        .works__item-inner
+                            .works__item-title JS-Snake
+                            .works__item-sub Classic arcade game written in JavaScript
+                            a.works__item-open(href="https://vadim-pos.github.io/js-snake/dist/" target="_blank") Open
+                                svg
+                                    rect(x="0" y="0" fill="none" width="100%" height="100%")
+                            a.works__item-source(href="https://github.com/vadim-pos/js-snake" target="_blank") Source Code
+                    li.works__item(data-image="noughts-n-crosses.jpg")
+                        .works__item-inner
+                            .works__item-title Noughts-n-crosses
+                            .works__item-sub Vue mini-game with minimax AI
+                            a.works__item-open(href="https://vadim-pos.github.io/vue-noughts-n-crosses/" target="_blank") Open
+                                svg
+                                    rect(x="0" y="0" fill="none" width="100%" height="100%")
+                            a.works__item-source(href="https://github.com/vadim-pos/vue-noughts-n-crosses" target="_blank") Source Code
+                    li.works__item(data-image="minsktrans.jpg")
+                        .works__item-inner
+                            .works__item-title Minsktrans routes
+                            .works__item-sub Created with CORS and minsktrans closed API
+                            a.works__item-open(href="https://vadim-pos.github.io/vue-minsktrans/" target="_blank") Open
+                                svg
+                                    rect(x="0" y="0" fill="none" width="100%" height="100%")
+                            a.works__item-source(href="https://github.com/vadim-pos/vue-minsktrans" target="_blank") Source Code
+                    li.works__item(data-image="calendar.jpg")
+                        .works__item-inner
+                            .works__item-title React calendar
+                            .works__item-sub Calendar widget demo
+                            a.works__item-open(href="https://vadim-pos.github.io/react-calendar/" target="_blank") Open
+                                svg
+                                    rect(x="0" y="0" fill="none" width="100%" height="100%")
+                            a.works__item-source(href="https://github.com/vadim-pos/react-calendar" target="_blank") Source Code
+                    li.works__item(data-image="rubiko-thumb-3.jpg")
                         .works__item-inner
                             .works__item-title Rubiko
                             .works__item-sub Single page website
@@ -94,7 +143,7 @@ block content
                                 svg
                                     rect(x="0" y="0" fill="none" width="100%" height="100%")
                             a.works__item-source(href="https://github.com/vadim-pos/rubiko/tree/master/app" target="_blank") Source Code
-                    li.works__item
+                    li.works__item(data-image="pingbuller-thumb.jpg")
                         .works__item-inner
                             .works__item-title Pingbuller
                             .works__item-sub Single page website
@@ -102,15 +151,7 @@ block content
                                 svg
                                     rect(x="0" y="0" fill="none" width="100%" height="100%")
                             a.works__item-source(href="https://github.com/vadim-pos/pingbuller/tree/master/app" target="_blank") Source Code
-                    li.works__item
-                        .works__item-inner
-                            .works__item-title JS-Snake
-                            .works__item-sub Classic arcade game in JavaScript
-                            a.works__item-open(href="https://vadim-pos.github.io/js-snake/dist/" target="_blank") Open
-                                svg
-                                    rect(x="0" y="0" fill="none" width="100%" height="100%")
-                            a.works__item-source(href="https://github.com/vadim-pos/js-snake" target="_blank") Source Code
-                    li.works__item
+                    li.works__item(data-image="urlaubsgluck-thumb.jpg")
                         .works__item-inner
                             .works__item-title Urlaubsglück
                             .works__item-sub Main page

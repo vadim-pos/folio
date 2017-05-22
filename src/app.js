@@ -64,3 +64,13 @@ contactsClosers.on('click', function() {
     contactsIntroItem.removeClass('active');
     $(this).parent().removeClass('active');
 });
+
+
+/* ----- Works images ----- */
+/* -------------------------- */
+
+// $('.works__item').each((i, item) => item.style.background="url('img/" + $(item).data('image') + "') 50% 50% no-repeat");
+$('.works__item').each((i, item) => $(item).css({
+    background: "url('img/" + $(item).data('image') + "') 50% 50% no-repeat",
+    backgroundSize: 'cover'
+}));
